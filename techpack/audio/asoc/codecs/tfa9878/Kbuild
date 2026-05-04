@@ -64,15 +64,15 @@ endif
 
 ############ UAPI ############
 UAPI_DIR :=	uapi
-UAPI_INC :=	-I$(AUDIO_ROOT)/include/$(UAPI_DIR)
+UAPI_INC :=	-I $(srctree)/$(AUDIO_ROOT)/include/$(UAPI_DIR)
 
 ############ COMMON ############
 COMMON_DIR :=	include
-COMMON_INC :=	-I$(AUDIO_ROOT)/$(COMMON_DIR)
+COMMON_INC :=	-I $(srctree)/$(AUDIO_ROOT)/$(COMMON_DIR)
 ifdef CONFIG_ARCH_LITO
-TFA9878_INC :=  -I$(TFA_SRC_DIR)/tfa9878_lito/inc
+TFA9878_INC :=  -I $(srctree)/$(TFA_SRC_DIR)/tfa9878_lito/inc
 else
-TFA9878_INC :=  -Itechpack/audio/asoc/codecs/tfa9878/inc
+TFA9878_INC :=  -I $(srctree)/techpack/audio/asoc/codecs/tfa9878/inc
 endif
 ############ MSM Soundwire ############
 
@@ -97,7 +97,7 @@ endif
 endif
 endif
 
-LINUX_INC +=	-Iinclude/linux
+LINUX_INC +=	-I $(srctree)/include/linux
 
 INCS +=		$(COMMON_INC) \
 		$(UAPI_INC) \
