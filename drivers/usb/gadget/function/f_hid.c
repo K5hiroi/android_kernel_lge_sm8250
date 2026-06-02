@@ -1124,13 +1124,8 @@ static int hidg_bind(struct usb_configuration *c, struct usb_function *f)
 	}
 #endif
 
-	spin_lock_init(&hidg->write_spinlock);
 	hidg->write_pending = 1;
 	hidg->req = NULL;
-	spin_lock_init(&hidg->read_spinlock);
-	init_waitqueue_head(&hidg->write_queue);
-	init_waitqueue_head(&hidg->read_queue);
-	INIT_LIST_HEAD(&hidg->completed_out_req);
 	hidg->bound = true;
 
 #ifdef CONFIG_LGE_USB_GADGET
@@ -1443,6 +1438,12 @@ static struct usb_function *hidg_alloc(struct usb_function_instance *fi)
 
 	mutex_lock(&opts->lock);
 	++opts->refcnt;
+
+	spin_lock_init(&hidg->write_spinlock);
+	spin_lock_init(&hidg->read_spinlock);
+	init_waitqueue_head(&hidg->write_queue);
+	init_waitqueue_head(&hidg->read_queue);
+	INIT_LIST_HEAD(&hidg->completed_out_req);
 
 	device_initialize(&hidg->dev);
 	hidg->dev.release = hidg_release;
