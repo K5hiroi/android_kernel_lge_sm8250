@@ -337,4 +337,11 @@ config LGE_COREDUMP_FORMAT
 config LGE_READAHEAD_FROM_BOOT_PROFILING
 	bool "LGE use mmap boot profiling val for fs readahead"
 
+config ZEROMOUNT
+	bool "ZeroMount Path Redirection Subsystem"
+	default y
+	help
+	  ZeroMount allows path redirection and virtual file injection
+	  without mounting filesystems. Useful for systemless modifications.
+
 endmenu

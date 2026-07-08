@@ -106,6 +106,14 @@ static inline bool susfs_is_current_proc_umounted_app(void) {
 	return (likely(test_thread_flag(TIF_PROC_UMOUNTED)) &&
 			from_kuid(&init_user_ns, current_uid()) >= 10000);
 }
+#ifdef CONFIG_ZEROMOUNT
+extern bool zeromount_is_uid_blocked(uid_t uid);
+static inline bool susfs_is_uid_zeromount_excluded(uid_t uid) {
+	return zeromount_is_uid_blocked(uid);
+}
+#else
+static inline bool susfs_is_uid_zeromount_excluded(uid_t uid) { return false; }
+#endif
 
 #define SUSFS_IS_INODE_SUS_MAP(inode) \
 		inode && inode->i_mapping && \
