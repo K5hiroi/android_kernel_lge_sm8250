@@ -48,6 +48,7 @@ echo "CCACHE_DIR: [$CCACHE_DIR]"
 # Export Build Info
 export KBUILD_BUILD_USER="kiyomi"
 export KBUILD_BUILD_HOST="yuki"
+export KBUILD_BUILD_TIMESTAMP=$(TZ="Japan" date)
 
 MAKE_ARGS="ARCH=arm64 \
            SUBARCH=arm64 \
@@ -136,7 +137,6 @@ if [ $KSU_ENABLE -eq 1 ]; then
     -e KSU_MULTI_MANAGER_SUPPORT \
     -e KSU_SUSFS_AUTO_ADD_SUS_BIND_MOUNT \
     -e KPM \
-    -e ZEROMOUNT \
     -e TMPFS_XATTR \
     -e TMPFS_POSIX_ACL
 else
