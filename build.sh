@@ -137,7 +137,6 @@ if [ $KSU_ENABLE -eq 1 ]; then
     -e KSU_MULTI_MANAGER_SUPPORT \
     -e KSU_SUSFS_AUTO_ADD_SUS_BIND_MOUNT \
     -e KPM \
-    -e NOMOUNT \
     -e TMPFS_XATTR \
     -e TMPFS_POSIX_ACL
 else
