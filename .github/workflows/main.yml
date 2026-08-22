@@ -11,6 +11,7 @@ on:
         options:
           - timelm
           - nethunter
+          - alpha
           
       script:
         description: 'Select Build Script'
