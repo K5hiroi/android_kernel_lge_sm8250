@@ -12,7 +12,7 @@ on:
           - timelm
           - nethunter
           - alpha
-          - lineage
+          - crdroid
           
       script:
         description: 'Select Build Script'
