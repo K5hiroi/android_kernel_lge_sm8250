@@ -12,6 +12,7 @@ on:
           - timelm
           - nethunter
           - alpha
+          - lineage
           
       script:
         description: 'Select Build Script'
