@@ -11,6 +11,8 @@ on:
         options:
           - timelm
           - nethunter
+          - evox
+          - infinityx
           
       script:
         description: 'Select Build Script'

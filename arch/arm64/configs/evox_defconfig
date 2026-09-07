@@ -1,19 +1,3 @@
-CONFIG_GCC_VERSION=0
-CONFIG_CC_IS_CLANG=y
-CONFIG_LD_IS_LLD=y
-CONFIG_CLANG_VERSION=210000
-CONFIG_AS_IS_LLVM=y
-CONFIG_AS_VERSION=210000
-CONFIG_LLD_VERSION=210000
-CONFIG_CC_CAN_LINK=y
-CONFIG_CC_CAN_LINK_STATIC=y
-CONFIG_CC_HAS_ASM_GOTO=y
-CONFIG_TOOLS_SUPPORT_RELR=y
-CONFIG_IRQ_WORK=y
-CONFIG_BUILDTIME_EXTABLE_SORT=y
-CONFIG_THREAD_INFO_IN_TASK=y
-
-#
 # General setup
 #
 CONFIG_INIT_ENV_ARG_LIMIT=32
@@ -2211,6 +2195,12 @@ CONFIG_CNSS_GENL=y
 # CONFIG_WAN is not set
 # CONFIG_VMXNET3 is not set
 # CONFIG_NET_FAILOVER is not set
+
+#
+# Re:Kernel
+#
+CONFIG_REKERNEL=y
+# CONFIG_REKERNEL_DEBUG is not set
 # CONFIG_ISDN is not set
 
 #
@@ -5751,6 +5741,57 @@ CONFIG_TRUSTONIC_TEE_LPAE=y
 # CONFIG_TRUSTONIC_TRUSTED_UI is not set
 
 #
+# KernelSU
+#
+CONFIG_KSU=y
+# CONFIG_KSU_DEBUG is not set
+# CONFIG_KSU_TOOLKIT_SUPPORT is not set
+CONFIG_KSU_FULL_NAME_FORMAT="%TAG_NAME%-%COMMIT_SHA%@%REPO_NAME%"
+# CONFIG_KSU_DISABLE_MANAGER is not set
+# CONFIG_KSU_DISABLE_POLICY is not set
+CONFIG_KSU_MULTI_MANAGER_SUPPORT=y
+# CONFIG_KSU_TRACEPOINT_HOOK is not set
+# CONFIG_KSU_MANUAL_HOOK is not set
+CONFIG_KSU_SUSFS=y
+
+#
+# KernelSU - SUSFS
+#
+
+#
+# ------------------------WARNING-------------------------------
+#
+
+#
+# ReSukiSU will check EVERY hooks in kernel compile process
+#
+
+#
+# If anything mismatch with simonpunk's patch, Kernel compile maybe FAILED!
+#
+
+#
+# See simonpunk's original patch if you face any compile failed due to hook check
+#
+
+#
+# Repo: https://gitlab.com/simonpunk/susfs4ksu
+#
+
+#
+# --------------------------------------------------------------
+#
+CONFIG_KSU_SUSFS_SUS_PATH=y
+CONFIG_KSU_SUSFS_SUS_MOUNT=y
+CONFIG_KSU_SUSFS_SUS_KSTAT=y
+CONFIG_KSU_SUSFS_SPOOF_UNAME=y
+CONFIG_KSU_SUSFS_ENABLE_LOG=y
+CONFIG_KSU_SUSFS_HIDE_KSU_SUSFS_SYMBOLS=y
+CONFIG_KSU_SUSFS_SPOOF_CMDLINE_OR_BOOTCONFIG=y
+CONFIG_KSU_SUSFS_OPEN_REDIRECT=y
+CONFIG_KSU_SUSFS_SUS_MAP=y
+
+#
 # File systems
 #
 CONFIG_DCACHE_WORD_ACCESS=y
@@ -6340,11 +6381,6 @@ CONFIG_MESSAGE_LOGLEVEL_DEFAULT=4
 # Compile-time checks and compiler options
 #
 # CONFIG_DEBUG_INFO is not set
-# CONFIG_DEBUG_INFO_REDUCED is not set
-# CONFIG_DEBUG_INFO_SPLIT is not set
-# CONFIG_DEBUG_INFO_DWARF4 is not set
-# CONFIG_DEBUG_INFO_BTF is not set
-# CONFIG_GDB_SCRIPTS is not set
 CONFIG_ENABLE_MUST_CHECK=y
 CONFIG_FRAME_WARN=4096
 # CONFIG_STRIP_ASM_SYMS is not set
@@ -6561,3 +6597,4 @@ CONFIG_DEBUG_ALIGN_RODATA=y
 #
 CONFIG_RMNET_PERF=m
 CONFIG_RMNET_SHS=m
+
