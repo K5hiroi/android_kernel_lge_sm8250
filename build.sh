@@ -138,7 +138,8 @@ if [ $KSU_ENABLE -eq 1 ]; then
     -e KSU_SUSFS_AUTO_ADD_SUS_BIND_MOUNT \
     -e KPM \
     -e TMPFS_XATTR \
-    -e TMPFS_POSIX_ACL
+    -e TMPFS_POSIX_ACL \
+    -e NOMOUNT
 else
     scripts/config --file out/.config -d KSU
 fi

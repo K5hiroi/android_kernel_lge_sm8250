@@ -21,6 +21,7 @@
 #include <linux/slab.h>
 #include <linux/types.h>
 #include <linux/uaccess.h>
+#include <asm/page.h>
 
 #define PM8150B_SYSFS
 
@@ -254,7 +255,7 @@ static ssize_t pm8150b_vmax_registers_show(struct device *dev,
 		return -1;
 	}
 	pr_err("%s: input-data=%u, reg-data:%u\n", __func__, vmax_mv_test, val);
-	return snprintf(buf, sizeof(buf), "%u\n", vmax_mv_test);
+	return sysfs_emit(buf, "%u\n", vmax_mv_test);
 }
 
 static ssize_t pm8150b_vmax_registers_store(struct device *dev,
@@ -303,7 +304,7 @@ static ssize_t pm8150b_freq_registers_show(struct device *dev,
 		return -1;;
 	}
 	pr_err("%s: input-data=%u, reg-data:%u, %u\n", __func__, play_rate_us_test, val[0], val[1]);
-	return snprintf(buf, sizeof(buf), "%u\n", play_rate_us_test);
+	return sysfs_emit(buf, "%u\n", play_rate_us_test);
 }
 
 static ssize_t pm8150b_freq_registers_store(struct device *dev,
