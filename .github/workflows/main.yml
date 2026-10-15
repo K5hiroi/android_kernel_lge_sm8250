@@ -13,6 +13,7 @@ on:
           - nethunter
           - evox
           - infinityx
+          - alpha
           
       script:
         description: 'Select Build Script'
